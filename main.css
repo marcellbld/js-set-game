@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+body{
+    font-family: 'Rubik';
+}
+body,html {
+    height: 100%;
+}
+
+.btn-white {
+    background-color: white;
+}
+.btn-white.active{
+    color: white;
+    background-color: black;
+}
+
+#namesettings-popup{
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+#player-list li:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+#player-list li:active, #player-list li.active {
+    background-color: #17a2b8;
+    color: white;
+    cursor: pointer;
+}
+#player-list li.ignored {
+    background-color: #b81717;
+    color: white;
+    cursor: initial;
+}
+
+.set-card {
+    width: 7rem;
+    height: 10rem;
+    border-radius: 0.5rem;
+    background-color: whitesmoke;
+    border: 0.05rem solid lightgray;
+    margin: 0.25rem;
+    transform-origin: center;
+}
+
+.set-card-active {
+    border: 0.1rem solid #17a2b8;
+    animation: active-card 2s infinite both, jello-vertical 0.9s both;
+}
+
+.set-card-inactive {
+    background-color: rgb(206, 206, 206);
+}
+
+.set-card-found {
+    border: 0.1rem solid #b8b517;
+    animation: found-card 2s infinite both, jello-vertical 0.9s both;
+}
+
+.set-card-disappear {
+    animation: swirl-out-bck 0.6s ease-in both;
+}
+
+.set-card-appear {
+    animation: puff-in-center 0.7s ease-out both;
+}
+
+#timer {
+    width: 5rem;
+    height: 5rem;
+}
+
+#timer-progress {
+    width: 0rem;
+    height: 0rem;
+}
+
+#info-panel {
+    font-size: 1.2rem;
+    font-weight: bold;
+    height: 1.2rem;
+}
+
+/** Bootstrap fix **/
+
+.custom-switch .custom-control-label::after{
+    border: lightgray solid 1px !important;
+    background-color: lightgray !important;
+}
+.custom-control-input~.custom-control-label::before{
+    border-color: lightgray !important;
+    background-color: white !important;
+    box-shadow: 0 1px 1px lightgray inset, 0 0 8px lightgray !important;
+    outline: 0 none !important;
+}
+.custom-control-input:checked~.custom-control-label::before{
+    border-color: black !important;
+    background-color: black !important;
+}
+
+div.custom-control-right {
+    padding-right: 24px;
+    padding-left: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+div.custom-control-right .custom-control-label::after{
+    right: -1.5rem;
+    left: auto;
+}
+
+div.custom-control-right .custom-control-label::before {
+    right: -2.35rem;
+    left: auto;
+}
+
+.outline-main:focus,
+label.active,
+.custom-control-input:checked~.custom-control-label::before{
+  border-color: black !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px black !important;
+  outline: 0 none !important;
+}
+
+/** Animations **/
+
+@keyframes jello-vertical {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    40% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    50% {
+        transform: scale3d(0.85, 1.15, 1);
+    }
+    65% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    75% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes active-card {
+    0% {
+        background-color: whitesmoke;
+    }
+    50% {
+        background-color: rgb(210, 231, 241);
+    }
+    100% {
+        background-color: whitesmoke;
+    }
+}
+@keyframes found-card {
+    0% {
+        background-color: whitesmoke;
+    }
+    50% {
+        background-color: rgb(239, 241, 210);
+    }
+    100% {
+        background-color: whitesmoke;
+    }
+}
+@keyframes swirl-out-bck {
+    0% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-540deg) scale(0);
+        opacity: 0;
+    }
+}
+@keyframes puff-in-center {
+    0% {
+        transform: scale(2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+  
